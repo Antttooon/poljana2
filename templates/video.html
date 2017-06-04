@@ -1,0 +1,71 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block title %} Видео {% endblock %}
+
+{% block content %}
+
+    <div class="text col-sm-10 col-md-10 col-lg-10">
+
+        {% for video in videos %}
+
+				<div class="row content_row">
+					<div class="col-xs-10 col-sm-6 col-md-6 col-lg-4 text_head_video">
+                        <h1>{{video.header}}</h1>
+
+                    </div>
+					<div class="col-xs-10 col-sm-6 col-md-6 col-lg-8 text_body_video">
+
+						<!--a href="http://www.youtube.com/embed/{{video.body}}" target="_blank" onClick="window.open(this.href, '', 'width='+screen.availWidth/2+',
+						height='+screen.availHeight/2+',top='+screen.availHeight/4+',left='+screen.availWidth/4); return false;" style="background = url('http://img.youtube.com/vi/{{video.body}}/mqdefault.jpg');">
+							qqq
+						<!--img title="видео: переправа" alt="переправа" src="http://img.youtube.com/vi/{{video.body}}/mqdefault.jpg" class="video_preview"/-->
+
+						</a>
+
+						<style>
+						img[src$="/mqdefault.jpg"] + iframe {
+						  position: fixed;
+						  z-index: 11;
+						  top: 0;
+						  left: 0;
+						  width: 100%;
+						  height: 100%;
+						  -moz-box-sizing: border-box; box-sizing: border-box;
+						  border: solid rgba(0,0,0,.3);
+						  border-width: 5vh 5vw;
+						}
+						</style>
+
+						<img title="видео: переправа" alt="переправа" src="http://img.youtube.com/vi/{{video.body}}/mqdefault.jpg" height="180" width="320" class="tr-caption-container"/>
+
+						<script>
+						var img = document.querySelectorAll('img[src$="/mqdefault.jpg"]');
+						for (var i = 0; i < img.length; i++) {
+						  img[i].onclick = function() {
+							var idImg = this.src.replace(/http...img.youtube.com.vi.(.*?).mqdefault.jpg/gi, '$1');
+							theIframe = document.createElement('iframe');
+							theIframe.src = '//www.youtube.com/embed/' + idImg + '?rel=0&autoplay=1';
+							theIframe.onclick = function () {this.parentElement.removeChild(this);};
+							this.parentNode.insertBefore(theIframe, this.nextSibling);
+						  }
+						}
+						</script>
+
+
+                      <!--iframe width="560" height="315" src="{{video.body}}" frameborder="0" allowfullscreen></iframe-->
+
+					</div>
+
+				</div>
+
+				<div class="row content_row">
+						<div class="col-md-9 arrow"></div>
+					</div>
+
+        {% endfor %}
+
+
+    </div>
+
+{%endblock%}

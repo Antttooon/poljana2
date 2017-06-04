@@ -1,0 +1,172 @@
+{% load static %}
+{% load thumbnail %}
+<!DOCTYPE html>
+<html lang="en">
+<head><meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,height=device-height, initial-scale=1.0, user-scalable=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>
+		{% block title %}
+		{% endblock %}
+	</title>
+    <link href="{% static 'css/bootstrap.min.css' %}" rel="stylesheet">
+    <link href="{% static 'css/font-awesome.min.css' %}" rel="stylesheet">
+	<link href="{% static 'css/main.css' %}" rel="stylesheet">
+	<link href="{% static 'css/animate.css' %}" rel="stylesheet">
+	<link href="{% static 'css/responsive.css' %}" rel="stylesheet">
+	<link type="text/css" rel="stylesheet" href="{% static 'css/lightgallery.css' %}" />
+
+    <!--[if lt IE 9]>
+	    <!--script src="js/html5shiv.js"></script>
+	    <script src="js/respond.min.js"></script>
+    <![endif]-->
+    <link rel="shortcut icon" href="{% static 'images/ico/favicon.ico' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="144x144" href="{% static 'images/ico/apple-touch-icon-144-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="114x114" href="{% static 'images/ico/apple-touch-icon-114-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" sizes="72x72" href="{% static 'images/ico/apple-touch-icon-72-precomposed.png' %}">
+    <link rel="apple-touch-icon-precomposed" href="{% static 'images/ico/apple-touch-icon-57-precomposed.png' %}">
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+</head><!--/head-->
+
+<body>
+
+	<header id="header" role="banner">		
+		<div class="main-nav">
+			<div class="container">
+				<div class="header-top">
+					<div class="pull-right social-icons">
+						<a href="https://vk.com/poljanarock" target="blank"><i class="fa fa-vk"></i></a>
+						<a href="https://instagram.com" target="blank"><i class="fa fa-instagram" aria-hidden="true"></i></a>
+						<a href="https://facebook.com" target="blank" ><i class="fa fa-facebook"></i></a>
+						<!--a href="#"><i class="fa fa-soundcloud" aria-hidden="true"></i></a-->
+						<a href="https://www.youtube.com/results?search_query=poljana" target="blank"><i class="fa fa-youtube"></i></a>
+						
+					</div>
+				</div>     
+		        <div class="row">	        		
+		            <div class="navbar-header">
+		                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+		                    <span class="sr-only">Toggle navigation</span>
+		                    <span class="icon-bar"></span>
+		                    <span class="icon-bar"></span>
+		                    <span class="icon-bar"></span>
+		                </button>
+		                <a class="navbar-brand" href="{% url 'main' %}">
+		                	<img class="img-responsive logo" src="{% static 'images/logo2.png' %}" alt="logo">
+		                </a>
+		            </div>
+		            <div class="collapse navbar-collapse">
+		                <ul class="nav navbar-nav navbar-right">
+		                    <li class="links"><a href="{% url 'main' %}">Poljana</a></li>
+		                    <li class="links"><a href="{% url 'afisha' %}">Афиша</a></li>
+		                    <li class="links"><a href="{% url 'news' %}">Новости</a></li>
+		                    <li class="links drop_link"><a>Медиа</a>
+								<ul class="dropdown">
+									<li><a href="{% url 'music' %}">Музыка</a></li>
+									<li><a href="{% url 'video' %}">Видео</a></li>
+									<li><a href="{% url 'photo' %}">Фотогалерея</a></li>
+								</ul>
+
+		                    </li>
+		                    <li class="links"><a href="{% url 'contacts' %}">Контакты</a></li>
+		                </ul>
+		            </div>
+		        </div>
+	        </div>
+        </div>                    
+    </header>
+    <!--/#header-->
+	
+	
+    <!--div class="content" style="background-image: url({% static 'images/slider/poljana_black.jpg'%})";-->
+
+	<div class="fixed-crossbrowser-background" style="background-image: url( {% if bg.bg %}
+															{{ bg.bg.url }}
+														{% else %} {% static 'images/slider/poljana_black.jpg'%}
+														 {% endif %})";></div>
+	<!--div class="content" style="background-image: url( {% if bg.bg %}
+															{{ bg.bg.url }}
+														{% else %} {% static 'images/slider/poljana_black.jpg'%}
+														 {% endif %})";-->
+	<div class="content">
+	{% block content %}
+
+
+			<div class="text col-sm-10 col-md-10 col-lg-10">
+				<!--div class="row content_row">
+					<div class="col-sm-4 col-md-4 col-lg-4 text_head">
+						<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, a! Ullam, maiores consequuntur aperiam mollitia fugiat eum quam, eos tempore tenetur aspernatur dolor odio unde accusantium placeat voluptatum deserunt eius.</h1>
+					</div>
+					<div class="col-sm-8 col-md-8 col-lg-8 text_body">
+						<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus id quasi praesentium dolor labore, expedita culpa, corporis aspernatur porro officiis blanditiis deserunt commodi voluptate ab enim non adipisci at dolore.</div>
+						<div>Beatae corrupti iusto praesentium neque delectus blanditiis veniam cumque atque dignissimos, temporibus velit fuga facilis voluptatum qui tenetur accusantium reiciendis ipsum autem veritatis officia, corporis aliquam. Recusandae a fugiat impedit.</div>
+						<div>Natus vitae maiores, culpa corporis sed commodi aperiam ipsum in minus cumque. Aspernatur pariatur atque suscipit doloribus aperiam temporibus sint iusto laboriosam quod distinctio ratione ab, esse, sunt itaque quia?</div>
+						<div>Impedit hic error quibusdam eligendi expedita aspernatur accusantium sit quaerat ipsam, enim atque suscipit rerum nihil dignissimos voluptatum officia aliquam natus dolore voluptas iste voluptatibus at! Animi commodi optio sit.</div>
+						<div>Distinctio asperiores consequuntur saepe voluptas rem beatae deleniti numquam dolor quasi recusandae, aperiam, ut. Ratione reprehenderit architecto ipsam molestiae et, quae, magni tempore impedit itaque, atque incidunt doloremque modi quo.</div>
+						<div>Ratione, esse, quod! Esse dolore earum maxime magnam alias quod, aperiam nisi minima dolores! Nisi vel modi, quo, esse dolores numquam nihil ex. Dolorum tenetur exercitationem similique laboriosam rem repudiandae.</div>
+						<div>Eius consequatur laudantium, facilis ducimus modi excepturi vel sint? Labore, maiores! Nam eaque, hic, doloremque vitae quidem, eos doloribus distinctio iusto perspiciatis magni nobis accusantium qui pariatur fugiat esse maiores.</div>
+					</div>
+
+				</div>
+
+				<div class="row content_row">
+					<div class="col-sm-4 col-md-4 col-lg-4 text_head">
+						<h1>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Nostrum, a! Ullam, maiores consequuntur aperiam mollitia fugiat eum quam, eos tempore tenetur aspernatur dolor odio unde accusantium placeat voluptatum deserunt eius.</h1>
+					</div>
+					<div class="col-sm-8 col-md-8 col-lg-8 text_body">
+						<div>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Necessitatibus id quasi praesentium dolor labore, expedita culpa, corporis aspernatur porro officiis blanditiis deserunt commodi voluptate ab enim non adipisci at dolore.</div>
+						<div>Beatae corrupti iusto praesentium neque delectus blanditiis veniam cumque atque dignissimos, temporibus velit fuga facilis voluptatum qui tenetur accusantium reiciendis ipsum autem veritatis officia, corporis aliquam. Recusandae a fugiat impedit.</div>
+						<div>Natus vitae maiores, culpa corporis sed commodi aperiam ipsum in minus cumque. Aspernatur pariatur atque suscipit doloribus aperiam temporibus sint iusto laboriosam quod distinctio ratione ab, esse, sunt itaque quia?</div>
+						<div>Impedit hic error quibusdam eligendi expedita aspernatur accusantium sit quaerat ipsam, enim atque suscipit rerum nihil dignissimos voluptatum officia aliquam natus dolore voluptas iste voluptatibus at! Animi commodi optio sit.</div>
+						<div>Distinctio asperiores consequuntur saepe voluptas rem beatae deleniti numquam dolor quasi recusandae, aperiam, ut. Ratione reprehenderit architecto ipsam molestiae et, quae, magni tempore impedit itaque, atque incidunt doloremque modi quo.</div>
+						<div>Ratione, esse, quod! Esse dolore earum maxime magnam alias quod, aperiam nisi minima dolores! Nisi vel modi, quo, esse dolores numquam nihil ex. Dolorum tenetur exercitationem similique laboriosam rem repudiandae.</div>
+						<div>Eius consequatur laudantium, facilis ducimus modi excepturi vel sint? Labore, maiores! Nam eaque, hic, doloremque vitae quidem, eos doloribus distinctio iusto perspiciatis magni nobis accusantium qui pariatur fugiat esse maiores.</div>
+					</div>
+
+				</div-->
+
+			</div>
+{% endblock %}
+
+    </div>
+	
+
+
+	{% block footer %}
+    <footer id="footer">
+        <div class="container">
+            <div class="text-center">
+                <p> Copyright  &copy;2017<a href="{% url 'main' %}"> POLJANA </a>All Rights Reserved.
+                </p>
+				<p>разработка сайта <a href="https://vk.com/anttoon">anttoon</a>	</p>
+            </div>
+        </div>
+    </footer>
+    {% endblock %}
+    <!--/#footer-->
+
+    <script type="text/javascript" src="{% static 'js/jquery.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/bootstrap.min.js' %}"></script>
+	<!--script type="text/javascript" src="http://maps.google.com/maps/api/js?sensor=true"></script-->
+  	<!--script type="text/javascript" src="{% static 'js/gmaps.js' %}"></script-->
+	<script type="text/javascript" src="{% static 'js/smoothscroll.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/jquery.parallax.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/coundown-timer.js' %}"></script>
+    <!--script type="text/javascript" src="{% static 'js/jquery.scrollTo.js' %}"></script-->
+    <script type="text/javascript" src="{% static 'js/jquery.nav.js' %}"></script>
+    <script type="text/javascript" src="{% static 'js/main.js' %}"></script>
+	<script type="text/javascript" src="{% static 'js/main2.js' %}"></script>
+
+    <!--script src="https://cdn.jsdelivr.net/picturefill/2.3.1/picturefill.min.js"></script-->
+    <script src="{% static 'js/light-gallery/lightgallery.js'%}"></script>
+    <script src="{% static 'js/light-gallery/lg-fullscreen.js' %}"></script>
+    <script src="{% static 'js/light-gallery/lg-thumbnail.js' %}"></script>
+    <!--script src="{% static 'js/light-gallery/lg-video.js' %}"></script>
+    <script src="{% static 'js/light-gallery/lg-autoplay.js' %}"></script>
+    <script src="{% static 'js/light-gallery/lg-zoom.js' %}"></script>
+    <script src="{% static 'js/light-gallery/lg-hash.js' %}"></script>
+    <script src="{% static 'js/light-gallery/lg-pager.js' %}"></script-->
+</body>
+</html>

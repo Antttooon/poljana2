@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block title %} Ближайшие концерты {% endblock %}
+
+
+{% block content %}
+
+
+
+			<div class="text col-sm-10 col-md-10 col-lg-10">
+
+				<h1> Афиша близжайших концертов формируется </h1>
+				{% for i in afisha %}
+
+					<div class="row content_row">
+						<div class="col-xs-5 col-sm-4 col-md-6 col-lg-4 text_head_image">
+							<a href="{{i.image.url}}">
+								<img src="{{i.image.url}}" width="190"> </img>
+							</a>
+
+						</div>
+						<div class="col-xs-6 col-sm-6 col-md-6 col-lg-8 text_body_afisha">
+							<h2>{{i.header2}}</h2>
+							<h1>{{i.header3}}</h1>
+							<h1>{{i.header4}}</h1>
+							<h1>{{i.header5}}</h1>
+							<h3>{{i.header1}}</h3>
+
+							<!--a href="http://www.youtube.com/embed/{{video.body}}" target="_blank" onClick="window.open(this.href, '', 'width='+screen.availWidth/2+',
+							height='+screen.availHeight/2+',top='+screen.availHeight/4+',left='+screen.availWidth/4); return false;" style="background = url('http://img.youtube.com/vi/{{video.body}}/mqdefault.jpg');">
+								qqq
+							<!--img title="видео: переправа" alt="переправа" src="http://img.youtube.com/vi/{{video.body}}/mqdefault.jpg" class="video_preview"/-->
+
+							</a>
+
+
+						</div>
+
+					</div>
+
+					<div class="row content_row">
+						<div class="col-md-9 arrow"></div>
+					</div>
+
+
+
+				{% endfor %}
+
+
+
+
+			</div>
+
+
+
+	{% endblock %}

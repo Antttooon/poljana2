@@ -1,0 +1,37 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{%block title %} Новости {% endblock %}
+
+
+{% block content %}
+<div class="text col-sm-10 col-md-10 col-lg-10">
+
+        {% for item in news %}
+				<div class="row content_row">
+					<div class="col-sm-4 col-md-4 col-lg-4 text_head">
+						<h1>{{ item.header }}</h1>
+					</div>
+					<div class="col-sm-8 col-md-8 col-lg-8 text_body">
+					    {{ item.body }}
+                    </div>
+
+				</div>
+                <div class="row content_row date_news">
+                    {{ item.updated|date:"M Y" }}
+						<div class="col-xs-9 col-sm-9 col-md-9 col-lg-9 date_news">
+
+                        </div>
+					</div>
+                <div class="row content_row">
+						<div class="col-md-9 arrow"></div>
+                </div>
+
+    {% endfor %}
+
+			</div>
+
+
+{% endblock %}
+

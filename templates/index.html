@@ -1,0 +1,38 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block title %} Главная {% endblock %}
+
+{% block content %}
+
+
+
+			<div class="text col-sm-10 col-md-10 col-lg-10">
+
+				<h1>{{ main_text.text_header }}</h1>
+				<div class="about">
+					{{ main_text.main_text }}
+				</div>
+
+
+
+                <h1>состав группы Poljana</h1>
+				{% for musician in musicians %}
+				<div class="row content_row">
+					<div class="col-sm-7 col-md-6 col-lg-4 text_head">
+                        <h1>{{musician.name}}</h1>
+						<img src="{{musician.m_photo.url}}" width="350" alt="">
+                    </div>
+					<div class="col-sm-5 col-md-6 col-lg-8 text_body">
+						<p>{{musician.desc}}</p>
+						<p><a href="{{musician.links}}">{{musician.links}}</a> </p>
+					</div>
+					<div class="row content_row">
+						<div class="col-md-9 arrow"></div>
+					</div>
+				</div>
+				{% endfor %}
+
+			</div>
+
+	{% endblock %}
