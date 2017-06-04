@@ -52,7 +52,9 @@ def media(request):
 
 def music(request):
     bg = get_bg()
-    return render(request, 'music.html', {'bg': bg})
+    audio = AudioFile.objects.all()
+
+    return render(request, 'music.html', {'bg': bg, 'audios':audio})
 
 
 def photo(request, alboom_id=None):

@@ -1,5 +1,5 @@
 from django.db import models
-#from audiofield.fields import AudioField
+from audiofield.fields import AudioField
 from django.conf import settings
 import os.path
 from django.core.urlresolvers import reverse
@@ -151,25 +151,32 @@ class Afisha(models.Model):
 
 
 
-"""class Audio(models.Model):
+class AudioFile(models.Model):
     author = models.CharField(max_length=50, blank=True)
     alboom = models.CharField(max_length=30,blank=True)
     name = models.CharField(max_length=30, blank=True)
-    audio_file = AudioField(upload_to='your/upload/dir', blank=True,
+    audio_file = AudioField(upload_to='audio/', blank=True,
                             ext_whitelist=(".mp3", ".wav", ".ogg"),
                             help_text=("Allowed type - .mp3, .wav, .ogg"))
     created = models.DateTimeField(auto_now_add=True, verbose_name='дата создания')
     updated = models.DateTimeField(auto_now=True, verbose_name='дата изменения')
 
     def audio_file_player(self):
-
-
-
+        """audio player tag for admin"""
         if self.audio_file:
             file_url = settings.MEDIA_URL + str(self.audio_file)
             player_string = '<ul class="playlist"><li style="width:250px;">\
             <a href="%s">%s</a></li></ul>' % (file_url, os.path.basename(self.audio_file.name))
+
             return player_string
 
+
+    def path_audio_file(self):
+        name = self.audio_file
+        path = os.getcwd()
+        return os.path.join('/media/',str(name))
+
+
+
     audio_file_player.allow_tags = True
-    #audio_file_player.short_description = _('Audio file player')"""
+    audio_file_player.short_description = 'Audio file player'

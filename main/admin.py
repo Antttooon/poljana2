@@ -1,5 +1,6 @@
 from django.contrib import admin
 from .models import *
+from main.models import AudioFile
 
 # Register your models here.
 
@@ -47,12 +48,27 @@ class AfishaAdmin(admin.ModelAdmin):
     list_editable = ['display']
     ordering = ['created']
 
+class AudioFileAdmin(admin.ModelAdmin):
+    list_display = ['author','alboom','name','audio_file','audio_file_player','created','updated']
+    list_editable = ['alboom','name']
+    actions = ['custom_delete_selected']
 
+    """def custom_delete_selected(self, request, queryset):
+        # custom delete code
+        n = queryset.count()
+        for i in queryset:
+            if i.audio_file:
+                if os.path.exists(i.audio_file.path):
+                    os.remove(i.audio_file.path)
+            i.delete()
+        self.message_user(request, _("Successfully deleted %d audio files.") % n)
 
+    custom_delete_selected.short_description = "Delete selected items"
 
-#class AudioAdmin(admin.ModelAdmin):
- #   list_display = ['author','alboom','name','audio_file','created','updated']
-  #  list_editable = ['alboom','name']
+    def get_actions(self, request):
+        actions = super(AudioFileAdmin, self).get_actions(request)
+        del actions['delete_selected']
+        return actions"""
 
 
 
@@ -65,4 +81,4 @@ admin.site.register(MainText,MainTextAdmin)
 admin.site.register(News,NewsAdmin)
 admin.site.register(Video,VideoAdmin)
 admin.site.register(Afisha,AfishaAdmin)
-#admin.site.register(Audio,AudioAdmin)
+admin.site.register(AudioFile,AudioFileAdmin)

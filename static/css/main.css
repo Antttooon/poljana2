@@ -348,6 +348,12 @@ img{
   opacity: 1;
 }
 
+.audio_track{
+    display: block;
+    margin-bottom:10px;
+    width:500px;
+
+}
 .contacts{
     text-align: center;
     padding-left:0;
