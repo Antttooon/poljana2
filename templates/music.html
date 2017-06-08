@@ -1,0 +1,61 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{%block title %} Музыка {% endblock %}
+
+{% block content %}
+    <div class="text col-sm-10 col-md-10 col-lg-10">
+
+
+
+                <h1>Музыка</h1>
+
+				<div class="row content_row">
+					<div class="col-sm-5 col-md-5 col-lg-5 text_head border">
+                        <h1>название альбома</h1>
+						<img src="" width="350" alt="обложка альбома">
+                    </div>
+					<div class="col-sm-7 col-md-7 col-lg-7 text_body border">
+
+                        {% for i in audios %}
+                            <div id="container">
+
+
+                                <div class="players" id="player1-container">
+
+                                <p>{{i.author}}</p>
+
+                                <div class="media-wrapper">
+
+                                    <audio id="player1" preload="auto" controls class="audio" src="{{ i.path_audio_file }}"></audio>
+
+                                </div>
+
+                             </div>
+                            </div>
+
+                        {% endfor %}
+
+
+
+					</div>
+					<div class="row content_row">
+						<div class="col-md-9 arrow"></div>
+					</div>
+				</div>
+
+
+			</div>
+
+
+    <div class="text col-sm-10 col-md-10 col-lg-10">
+
+        <h1> P.S. данная страница находится в разработке</h1>
+
+
+
+    </div>
+
+{% endblock %}
+
+
