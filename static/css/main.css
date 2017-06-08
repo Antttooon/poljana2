@@ -415,6 +415,15 @@ img{
     top:-7px;
     width:12px;
 }
+
+.mejs__controls{
+
+    background: none!important;
+}
+
+
+
+
 .contacts{
     text-align: center;
     padding-left:0;

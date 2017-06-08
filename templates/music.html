@@ -9,43 +9,64 @@
 
 
                 <h1>Музыка</h1>
+                {% for a in albooms %}
+
+
 
 				<div class="row content_row">
-					<div class="col-sm-5 col-md-5 col-lg-5 text_head border">
-                        <h1>название альбома</h1>
-						<img src="" width="350" alt="обложка альбома">
+                    <div class="title container">
+                        <h1>{{a.alboom_name}}</h1>
                     </div>
-					<div class="col-sm-7 col-md-7 col-lg-7 text_body border">
+
+                    <div class="col-sm-5 col-md-5 col-lg-5 text_head">
+
+
+						<img src="{{a.image.url}}" width="350" alt="обложка альбома">
+
+                    </div>
+
+					<div class="col-sm-7 col-md-7 col-lg-7 text_body_audio">
 
                         {% for i in audios %}
+
+
+                        {%if i.alboom.id == a.id %}
+
                             <div id="container">
 
 
                                 <div class="players" id="player1-container">
 
-                                <p>{{i.author}}</p>
+
 
                                 <div class="media-wrapper">
-
+                                    <p>{{i.name}}</p>
                                     <audio id="player1" preload="auto" controls class="audio" src="{{ i.path_audio_file }}"></audio>
 
                                 </div>
 
                              </div>
                             </div>
+                            {% endif %}
+
 
                         {% endfor %}
 
 
 
+
 					</div>
 					<div class="row content_row">
-						<div class="col-md-9 arrow"></div>
+						<div class="col-sm-9 col-md-9 col-lg-9 arrow"></div>
 					</div>
 				</div>
 
 
+
+
+        {% endfor %}
 			</div>
+
 
 
     <div class="text col-sm-10 col-md-10 col-lg-10">

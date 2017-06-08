@@ -149,11 +149,22 @@ class Afisha(models.Model):
         verbose_name_plural = 'Афиши'
 
 
+class AudioAlboom(models.Model):
+    alboom_name = models.CharField(max_length=100,blank=True)
+    image = models.ImageField(upload_to="audio_alboom", blank=True)
+    desc = models.TextField(verbose_name='Описание(Не обязательно)', blank=True)
+    created = models.DateTimeField(auto_now_add=True, verbose_name='дата создания')
+    updated = models.DateTimeField(auto_now=True, verbose_name='дата изменения')
+
+    def __str__(self):
+        return self.alboom_name
+
 
 
 class AudioFile(models.Model):
-    author = models.CharField(max_length=50, blank=True)
-    alboom = models.CharField(max_length=30,blank=True)
+    #author = models.CharField(max_length=50, blank=True)
+    #alboom = models.CharField(max_length=30,blank=True)
+    alboom = models.ForeignKey(AudioAlboom,related_name='alboom_namel',verbose_name='Альбом')
     name = models.CharField(max_length=30, blank=True)
     audio_file = AudioField(upload_to='audio/', blank=True,
                             ext_whitelist=(".mp3", ".wav", ".ogg"),
@@ -176,7 +187,8 @@ class AudioFile(models.Model):
         path = os.getcwd()
         return os.path.join('/media/',str(name))
 
-
+    def __str__(self):
+        return self.name
 
     audio_file_player.allow_tags = True
     audio_file_player.short_description = 'Audio file player'

@@ -48,9 +48,14 @@ class AfishaAdmin(admin.ModelAdmin):
     list_editable = ['display']
     ordering = ['created']
 
+class AudioAlboomAdmin(admin.ModelAdmin):
+    list_display = ['id','alboom_name','image','desc','created']
+    list_editable = ['alboom_name','image','desc']
+
+
 class AudioFileAdmin(admin.ModelAdmin):
-    list_display = ['author','alboom','name','audio_file','audio_file_player','created','updated']
-    list_editable = ['alboom','name']
+    list_display = ['alboom','name','audio_file','audio_file_player','created','updated']
+    list_editable = ['name','audio_file']
     actions = ['custom_delete_selected']
 
     """def custom_delete_selected(self, request, queryset):
@@ -73,6 +78,8 @@ class AudioFileAdmin(admin.ModelAdmin):
 
 
 
+
+
 admin.site.register(BG_image,BGAdmin)
 admin.site.register(Photo_Alboom, AlboomAdmin)
 admin.site.register(Photo, PhotoAdmin)
@@ -82,3 +89,4 @@ admin.site.register(News,NewsAdmin)
 admin.site.register(Video,VideoAdmin)
 admin.site.register(Afisha,AfishaAdmin)
 admin.site.register(AudioFile,AudioFileAdmin)
+admin.site.register(AudioAlboom,AudioAlboomAdmin)
