@@ -46,7 +46,7 @@ body, html {
   padding: 9px 23px;
 }
 .border{
-    border:2px solid black;
+    border:2px solid white;
 }
 a {
   -webkit-transition: 300ms;
@@ -153,8 +153,8 @@ h2 {
   height: 90px;
   margin-bottom: 20px;
   position: relative;
-  *width: 297px;
-  width: 540px;
+
+  width: 530px;
 }
 .logo img{
   display: inline-block;
@@ -183,6 +183,7 @@ h2 {
 .dropdown li a{
   padding: 3px 17px !important;
 
+
 }
 
 
@@ -190,13 +191,16 @@ h2 {
 .navbar-right li a:focus,
 .navbar-right li a:active,  
 .navbar-right .active a {
-  background-color: rgba(255, 255, 255, 0.7);
+  background-color: rgba(255, 255, 255, 0.5);
   color: #2b5c44
 }
 
 .nav  ul {
+
+  background:rgba(1,1,1,0.7);
   list-style:none;
   position: absolute;
+  top: 60px;
   left:-9999px;
   opacity: 0;
   -webkit-transition:0.25s linear opacity;
@@ -234,7 +238,7 @@ h2 {
   margin-top: 0;
   padding: 0;
   margin-bottom: 0;
-  width: 125px;
+  width: 240px;
 }
 
 .fixed-menu .navbar-brand img {
@@ -351,8 +355,65 @@ img{
 .audio_track{
     display: block;
     margin-bottom:10px;
-    width:500px;
+    width:900px;
 
+}
+.js--audio-wrap{
+    display:block;
+    background-color:rgba(191, 196, 190, 0.23);
+    margin: 10px 20px;
+    border-radius:3px;
+}
+.js--audio-cont{
+
+}
+
+.js--timeline{
+    width:600px;
+    height:2px;
+    background-color:white;
+    margin: 0 30px 0 30px;
+}
+
+.js--timeline-control{
+    position: relative;
+    display:block;
+    top:-3px;
+    width:20px;
+    height:8px;
+    border-radius:50%;
+    background-color:#959595;
+
+
+
+}
+
+.mejs__container{
+    background-color:rgba(191, 196, 190, 0.23);
+    border-radius:18px;
+
+}
+
+.mejs__time-rail{
+    padding-top:14px;
+}
+
+.mejs__offscreen{
+    background-color:rgba(213, 29, 29, 0.91);
+    border-radius:18px;
+
+}
+
+
+.mejs__time-current, .mejs__time-loaded, .mejs__time-total, .mejs__time-slider,
+.mejs__time-hovered, .negative no-hover{
+    height:2px;
+
+}
+.mejs__time-handle-content{
+    height:5px;
+    top:-7px;
+    width:12px;
 }
 .contacts{
     text-align: center;
@@ -978,6 +1039,7 @@ img{
   .nav ul {
     list-style: none;
     position: absolute;
+    top:30px;
     left: -23px;
     opacity: 1;
     -webkit-transition: 0.25s linear opacity;
@@ -1020,7 +1082,12 @@ img{
 
 }
 
+@media (max-width: 1199px) and (min-width: 992px){
+    .navbar-right li a {
+        padding: 35px 15px;
 
+    }
+}
 
 @media screen and (min-width: 768px) and (max-width:981px){
 
@@ -1044,7 +1111,7 @@ img{
 
 @media screen and (max-width: 1035px){
     .img-responsive {
-        max-width: 75%;
+        max-width: 90%;
        }
     .navbar-brand {
     height: 90px;
@@ -1070,6 +1137,11 @@ img{
   }
 }
 
+@media (max-width: 1199px) and (min-width: 992px){
+    .navbar-right {
+        padding: 0 30px 0 0;
+    }
+}
 @media screen and (min-height:1020px){
   .content{
     min-height: 1000px;

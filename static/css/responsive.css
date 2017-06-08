@@ -11,7 +11,7 @@
   }
 
   .navbar-right li a {
-    padding: 35px 15px;
+    padding: 35px 12px;
   }
 
   .fixed-menu .container {
@@ -58,7 +58,7 @@
 @media (min-width: 768px) and (max-width: 991px) {
 
   .navbar-brand {
-    width: 215px;
+    width: 380px;
     height: 60px;
   }
 
@@ -68,7 +68,7 @@
 
   .navbar-right li a {
     padding:20px 11px;
-    font-size: 17px;
+    font-size: 20px;
   }
 
   .fixed-menu .container {
@@ -83,7 +83,7 @@
     padding: 20px 15px;
     font-size: 17px;
   }
- 
+
  #countdown li {
   margin-right: 15px;
  }

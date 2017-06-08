@@ -1,4 +1,4 @@
-from django.shortcuts import render, get_object_or_404
+from django.shortcuts import render, get_object_or_404, render_to_response
 from .models import *
 
 
@@ -45,16 +45,16 @@ def news(request):
                                          })
 
 
-def media(request):
+def media():
     bg = get_bg()
-    return render(request, 'media.html', {'bg': bg})
+    return render_to_response('media.html', {'bg': bg})
 
 
 def music(request):
     bg = get_bg()
     audio = AudioFile.objects.all()
 
-    return render(request, 'music.html', {'bg': bg, 'audios':audio})
+    return render_to_response('music.html', {'bg': bg, 'audios':audio})
 
 
 def photo(request, alboom_id=None):
