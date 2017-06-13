@@ -6,7 +6,7 @@
 *******Typography******
 **************************/
 html{
-  min-width:300px;
+  min-width:300px!important;
   min-height: auto;
 }
 body {
@@ -111,6 +111,7 @@ h2 {
   width: 100%;
   z-index: 999;
 }
+
 
 .main-nav 
 .container {
@@ -276,6 +277,7 @@ h2 {
   overflow: hidden;
 
 }
+
 .date_news{
     text-align: right;
     margin-right:1%;
@@ -343,7 +345,11 @@ padding: 15px;
   width: 80%;
   height: 2px;
   background: #b9b9b9;  
-  opacity: 0.5;  
+  opacity: 0.5;
+  border-top-left-radius:50%;
+  border-bottom-left-radius:40%;
+  border-bottom-right-radius:40%;
+  border-top-right-radius:50%;
 }
 .sm_photo{
   padding: 15px;
@@ -357,6 +363,11 @@ img{
     margin-bottom:10px;
     width:900px;
 
+}
+
+.text_body_audio h5{
+
+margin:0;
 }
 .js--audio-wrap{
     display:block;
@@ -388,14 +399,56 @@ img{
 
 }
 
-.mejs__container{
-    background-color:rgba(191, 196, 190, 0.23);
-    border-radius:18px;
+/*------------------------ Musick ---------------------------*/
+
+.title_audio_alboom{
+    padding-left:30px;
 
 }
 
+/*------------------------ PLAYER ---------------------------*/
+
+.text_body_audio{
+    min-height:500px;
+
+}
+
+.mejs__mediaelement, .mejs__controls{
+
+    /*width:100%;*/
+}
+
+
+.mejs__container, .mejs__offscreen {
+    width:100%!important;
+    background:rgba(0,0,0,0.2);
+    border-radius:20%;
+
+}
+
+.mejs__offscreen, .mejs__controls{
+
+
+}
+
+.mejs__mediaelement, .mejs__container, .mejs__offscreen{
+    margin-left:0;
+}
+
+.mejs__container{
+    /*background-color:rgba(191, 196, 190, 0.23);
+    border-radius:18px;*/
+}
+
 .mejs__time-rail{
+    position:relative;
     padding-top:14px;
+    width:70%;
+}
+
+.mejs__duration{
+    /*position:absolute;
+    right:20px;*/
 }
 
 .mejs__offscreen{
@@ -421,6 +474,10 @@ img{
     background: none!important;
 }
 
+.hide_over{
+	display: none;
+	z-index: 0;
+}
 
 
 
@@ -1061,10 +1118,35 @@ img{
     margin-bottom: 75px;
   }
 }
+@media screen and (min-width: 649px) and (max-width:767px){
+    .mejs__time-rail{
+        width:75%!important;
+    }
+
+
+}
+
+
+@media screen and (min-width: 300px) and (max-width:648px){
+    .mejs__time-rail{
+        width:60!important%;
+    }
+    .mejs__mediaelement, .mejs__controls{
+
+    width:100%;
+}
+
+}
+
+
+
+
 @media screen and (min-width: 300px) and (max-width:767px){
     .text{
-      margin:15px 10%;
+      margin:15px 2%;
     }
+
+
 
     .tr-caption-container{
         width: 250px;
@@ -1077,7 +1159,7 @@ img{
 @media screen and (min-width: 360px) and (max-width:450px){
 
         .text_head img{
-                    width:265px;
+                    width:318px;
 
                 }
 }
@@ -1085,7 +1167,7 @@ img{
 @media screen and (min-width: 250px) and (max-width:359px){
 
     .text_head img{
-            width:220px;
+            width:277px;
 
         }
 

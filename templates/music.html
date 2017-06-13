@@ -14,18 +14,18 @@
 
 
 				<div class="row content_row">
-                    <div class="title container">
+                    <div class="title_audio_alboom ">
                         <h1>{{a.alboom_name}}</h1>
                     </div>
 
-                    <div class="col-sm-5 col-md-5 col-lg-5 text_head">
+                    <div class="col-xs-12 col-sm-12 col-md-5 col-lg-5 text_head">
 
 
-						<img src="{{a.image.url}}" width="350" alt="обложка альбома">
+						<img src="{{a.image.url}}" class="col-xs-12 col-sm-12" alt="обложка альбома">
 
                     </div>
 
-					<div class="col-sm-7 col-md-7 col-lg-7 text_body_audio">
+					<div class="col-sm-12 col-sm-7 col-md-7 col-lg-7 text_body_audio">
 
                         {% for i in audios %}
 
@@ -39,10 +39,11 @@
 
 
 
-                                <div class="media-wrapper">
-                                    <p>{{i.name}}</p>
-                                    <audio id="player1" preload="auto" controls class="audio" src="{{ i.path_audio_file }}"></audio>
-
+                                <div id="id_{{i.id}}" class="media-wrapper" >
+                                    <div>
+                                        <h5>{{i.name}}</h5>
+                                        <audio id="player3dd" preload="auto" controls class="audio" src="{{ i.path_audio_file }}"></audio>
+                                    </div>
                                 </div>
 
                              </div>
@@ -76,6 +77,104 @@
 
 
     </div>
+
+{% endblock %}
+
+{% block scripts_audio %}
+
+<script id="mejs-code">
+	var mediaElements = document.getElementsByTagName('audio')
+	var count = mediaElements.length
+	while (count > 0) {
+
+	new MediaElementPlayer(mediaElements[count-1], {
+		// This is needed to make Jump Forward to work correctly
+		autoRewind: false,
+		features: ['playpause', 'current', 'progress' ,'duration', 'speed', 'skipback', 'jumpforward', 'tracks',
+			'chromecast', 'ads', 'vast','contextmenu'], // 'volume', 'current', 'markers',
+		// Markers plugin configuration
+		markers: [5, 10, 25, 40],
+		markerWidth: 5,
+		markerCallback: function (media, currentTime) {
+			console.log('Reached ' + currentTime + ' secs');
+		},
+		// Ads/Vast/VPAID configuration
+		vastAdTagUrl: 'vast_sample.xml',
+		vastAdsType: 'vast',
+		adsPrerollAdEnableSkip: true,
+		adsPrerollAdSkipSeconds: 5
+	});
+	count--
+	};
+
+
+</script>
+
+
+<script>
+    // этот скрипт добавляет в button и mejs__duration класс с ID песни
+    var media = document.getElementsByClassName("media-wrapper")
+
+    for (i=0; i< media.length; i++) {
+
+    var f = media[i].id
+
+    var sp = '#'+f+' .mejs__duration-container' // правило селекторов для mejs__duration-container
+    var bt = '#'+f+' button'                    // правило селекторов для button
+
+    var adsp = document.querySelector(sp)
+    var adbt = document.querySelector(bt)
+    console.log(sp)
+    console.log(adsp)
+    console.log(adbt)
+
+    $(adsp).addClass(f)
+    $(adbt).addClass(f)
+   }
+</script>
+
+<script>
+    var a = document.getElementsByClassName('media-wrapper')
+
+    $("button").click(function(){
+        if ($(this).attr("class")){
+
+
+
+
+        //for (var i = 0; i < a.length; i++) {
+            //var contact = a[i];
+            //var sel = document.querySelectorAll("#21  span")
+            //alert(sel)
+            //$(sel).addClass('anton')
+            //alert(contact.id);
+            //alert(contact.cells[0].id); // id нулевой <td> ячейки
+    });
+
+
+
+</script>
+
+<!--script>
+    var mV = document.querySelectorAll(".media-wrapper ")
+
+	var d = document.querySelectorAll('.mejs__time > .mejs__duration')
+
+	var i ;
+
+	$("button").click(function(){
+
+	    //for (i=0; i< length(mv); i++){
+	    //alert(mV);}
+	    $(mV).addClass("FUCK")
+
+
+    	//$(d).addClass("hide_over");
+	});
+</script-->
+
+
+
 
 {% endblock %}
 

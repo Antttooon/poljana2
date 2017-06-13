@@ -1,0 +1,51 @@
+<html>
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<link rel="stylesheet" href="mediaelement/build/mediaelementplayer.css">
+	<link rel="stylesheet" href="style.css">
+</head>
+<body>
+<div class="container">
+	<audio controls="" src="2.mp3"></audio>
+</div>
+
+<script src="mediaelement/build/mediaelement-and-player.min.js"></script>
+<script src="mediaelement/build/jquery.js"></script>
+
+	<script id="mejs-code">
+	var mediaElements = document.getElementsByTagName('audio')
+	var count = mediaElements.length
+	while (count > 0) {
+
+	new MediaElementPlayer(mediaElements[count-1], {
+		// This is needed to make Jump Forward to work correctly
+		autoRewind: false,
+		features: ['playpause', 'current','progress', 'duration', 'speed', 'skipback', 'jumpforward', 'tracks',
+			'chromecast','volume',  'markers', 'ads', 'vast','contextmenu'], // 'volume', 'current', 'markers',
+		// Markers plugin configuration
+		markers: [5, 10, 25, 40],
+		markerWidth: 5,
+		markerCallback: function (media, currentTime) {
+			console.log('Reached ' + currentTime + ' secs');
+		},
+		// Ads/Vast/VPAID configuration
+		vastAdTagUrl: 'vast_sample.xml',
+		vastAdsType: 'vast',
+		adsPrerollAdEnableSkip: true,
+		adsPrerollAdSkipSeconds: 5
+	});
+	count--
+	};
+</script>
+<script>
+	
+
+	$("button").click(function(){
+    $(".mejs__duration-container").addClass("hide_over");
+});
+</script>
+
+	
+</body>
+</html>

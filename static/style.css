@@ -1,0 +1,21 @@
+.container{
+	width: 300px;
+	height: 50px;
+	position: absolute;
+	top:200px;
+	left: 40%;
+}
+/*
+.mejs__currenttime-container{
+	position: relative;
+	left: 219px;
+}
+
+.mejs__duration-container{
+	
+}
+*/
+.hide_over{
+	display: none;
+	z-index: 0;
+}

@@ -1,0 +1,5 @@
+﻿
+
+def world():
+	print('rrrrr')
+	
