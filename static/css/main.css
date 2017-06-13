@@ -441,14 +441,15 @@ margin:0;
 }
 
 .mejs__time-rail{
-    position:relative;
+    position:absolute;
+    left:35px;
     padding-top:14px;
     width:70%;
 }
 
-.mejs__duration{
-    /*position:absolute;
-    right:20px;*/
+.mejs__duration-container{
+    position:absolute;
+    left:90%;
 }
 
 .mejs__offscreen{
@@ -474,11 +475,19 @@ margin:0;
     background: none!important;
 }
 
+
+.mejs__currenttime-container{
+    display:none;
+    position: relative;
+    left: 86.5%;
+
+}
 .hide_over{
 	display: none;
-	z-index: 0;
 }
-
+.visible{
+display:block;
+}
 
 
 .contacts{
