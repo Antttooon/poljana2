@@ -1,0 +1,7 @@
+sox (14.4.1-5+b1) unstable; urgency=low, binary-only=yes
+
+  * Binary-only non-maintainer upload for alpha; no source changes.
+  * Rebuild against libpng1.6.
+
+ -- alpha Build Daemon (imago) <buildd_alpha-imago@buildd.debian-ports.org>  Wed, 24 Dec 2014 14:33:55 -0500
+

@@ -18,7 +18,8 @@
 	<link type="text/css" rel="stylesheet" href="{% static 'css/lightgallery.css' %}" />
 
 	<!-- for PLAYER -->
-	<link rel="stylesheet" type="text/css" href="https://rawgit.com/mediaelement/mediaelement/master/build/mediaelementplayer.min.css">
+	<!--link rel="stylesheet" type="text/css" href="https://rawgit.com/mediaelement/mediaelement/master/build/mediaelementplayer.min.css"-->
+	<link rel="stylesheet" href="{% static 'mediaelement/build/mediaelementplayer.css' %}">
 
     <!--[if lt IE 9]>
 	    <!--script src="js/html5shiv.js"></script>
@@ -175,33 +176,12 @@
     <script src="{% static 'js/light-gallery/lg-pager.js' %}"></script-->
 
 	<!-- FOR PLAYER -->
-	<script src="https://rawgit.com/mediaelement/mediaelement/master/build/mediaelement-and-player.min.js"></script>
+	<script src="{% static 'mediaelement/build/mediaelement-and-player.min.js' %}"></script>
 
-	<script id="mejs-code">
-	var mediaElements = document.getElementsByTagName('audio')
-	var count = mediaElements.length
-	while (count > 0) {
 
-	new MediaElementPlayer(mediaElements[count-1], {
-		// This is needed to make Jump Forward to work correctly
-		autoRewind: false,
-		features: ['playpause', 'progress', 'duration', 'speed', 'skipback', 'jumpforward', 'tracks',
-			'chromecast', 'ads', 'vast','contextmenu'], // 'volume', 'current', 'markers',
-		// Markers plugin configuration
-		markers: [5, 10, 25, 40],
-		markerWidth: 5,
-		markerCallback: function (media, currentTime) {
-			console.log('Reached ' + currentTime + ' secs');
-		},
-		// Ads/Vast/VPAID configuration
-		vastAdTagUrl: 'vast_sample.xml',
-		vastAdsType: 'vast',
-		adsPrerollAdEnableSkip: true,
-		adsPrerollAdSkipSeconds: 5
-	});
-	count--
-	};
-</script>
+{% block scripts_audio %}
+
+{% endblock %}
 
 </body>
 </html>

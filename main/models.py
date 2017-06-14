@@ -162,8 +162,6 @@ class AudioAlboom(models.Model):
 
 
 class AudioFile(models.Model):
-    #author = models.CharField(max_length=50, blank=True)
-    #alboom = models.CharField(max_length=30,blank=True)
     alboom = models.ForeignKey(AudioAlboom,related_name='alboom_namel',verbose_name='Альбом')
     name = models.CharField(max_length=30, blank=True)
     audio_file = AudioField(upload_to='audio/', blank=True,
