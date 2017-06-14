@@ -337,6 +337,10 @@ padding: 15px;
 .gallery{
   padding: 10px;
 }
+
+.afisha_row{
+    margin-top:15px;
+}
 .arrow:nth-child(1) {
   margin-top: 1%;
   margin-left: 10%;
@@ -479,12 +483,13 @@ margin:0;
 .mejs__currenttime-container{
     display:none;
     position: relative;
-    left: 86.5%;
-
+    left: 86%;
 }
+
 .hide_over{
 	display: none;
 }
+
 .visible{
 display:block;
 }
@@ -1171,6 +1176,20 @@ display:block;
                     width:318px;
 
                 }
+         .mejs__currenttime-container{
+
+                    position: relative;
+                    left: 82%;
+                }
+}
+
+@media screen and (min-width: 450px) and (max-width:690px){
+         .mejs__currenttime-container{
+
+                    position: relative;
+                    left: 82%;
+                }
+
 }
 
 @media screen and (min-width: 250px) and (max-width:359px){
